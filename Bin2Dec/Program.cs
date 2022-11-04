@@ -7,7 +7,16 @@ namespace Bin2Dec
     {
         static int BinToDec(string binary)
         {
-            return Convert.ToInt32(binary, 2);
+            double sum = 0;
+
+            for (int i = 0; i < binary.Length; i++)
+            {
+                sum += Convert.ToInt32(binary[i].ToString()) * Math.Pow(2, binary.Length-i-1);
+            }
+
+            return Convert.ToInt32(sum);
+
+            //return Convert.ToInt32(binary, 2); Built-in method
         }
         static void Main(string[] args)
         {
